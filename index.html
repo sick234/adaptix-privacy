@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad — Adaptix</title>
+  <style>
+    :root {
+      --blue: #2979ff;
+      --blue-dark: #1565c0;
+      --bg: #080810;
+      --surface: #0f0f1a;
+      --surface2: #13131f;
+      --border: #1e1e30;
+      --text: #c8c8d8;
+      --text-muted: #6b6b88;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 24px 56px;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(41,121,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 0 40px rgba(41,121,255,0.35), 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    .hero p {
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 16px;
+      background: rgba(41,121,255,0.12);
+      border: 1px solid rgba(41,121,255,0.25);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--blue);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── INTRO CARD ── */
+    .intro-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .intro-card .icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .intro-card p { color: var(--text); margin: 0; }
+    .intro-card strong { color: var(--white); }
+
+    /* ── SECTIONS ── */
+    .section { margin-bottom: 44px; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .section-num {
+      width: 32px; height: 32px;
+      background: rgba(41,121,255,0.15);
+      border: 1px solid rgba(41,121,255,0.3);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+    .section h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    p { color: var(--text); margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 12px;
+    }
+    ul li {
+      padding: 9px 0 9px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    ul li:last-child { border-bottom: none; }
+    ul li::before {
+      content: '›';
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    strong { color: #dde; font-weight: 600; }
+
+    /* ── TERCEROS GRID ── */
+    .third-party-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 520px) { .third-party-grid { grid-template-columns: 1fr; } }
+
+    .third-party-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      transition: border-color 0.2s;
+    }
+    .third-party-card:hover { border-color: rgba(41,121,255,0.35); }
+    .third-party-card .service-name {
+      font-weight: 700;
+      color: var(--white);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .third-party-card .service-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0 0 8px;
+    }
+    .third-party-card a {
+      font-size: 12px;
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .third-party-card a:hover { text-decoration: underline; }
+
+    /* ── RIGHTS GRID ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 520px) { .rights-grid { grid-template-columns: 1fr; } }
+
+    .right-item {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--text);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .right-item .dot {
+      width: 8px; height: 8px;
+      background: var(--blue);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(41,121,255,0.1) 0%, rgba(21,101,192,0.05) 100%);
+      border: 1px solid rgba(41,121,255,0.25);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+    .contact-card h3 {
+      color: var(--white);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .contact-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+    .contact-btn {
+      display: inline-block;
+      padding: 10px 24px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .contact-btn:hover { background: var(--blue-dark); }
+
+    /* ── DIVIDER ── */
+    hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      width: 36px; height: 36px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      opacity: 0.85;
+    }
+    footer p { color: var(--text-muted); font-size: 13px; }
+    footer a { color: var(--blue); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="logo_mark.png" alt="Adaptix" class="hero-logo" />
+  <h1>Política de Privacidad</h1>
+  <p>Adaptix — Tu entrenador personal con IA adaptativa</p>
+  <div class="badge">Última actualización: Mayo 2025</div>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <div class="icon">🔒</div>
+    <p>En <strong>Adaptix</strong> tu privacidad es una prioridad. Esta política explica de forma clara qué datos recopilamos, cómo los usamos y cómo los protegemos. Nunca vendemos tu información a terceros.</p>
+  </div>
+
+  <!-- 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Información que recopilamos</h2>
+    </div>
+    <ul>
+      <li><div><strong>Datos de cuenta:</strong> correo electrónico, nombre y foto de perfil al registrarte.</div></li>
+      <li><div><strong>Datos físicos:</strong> edad, género, peso, estatura, nivel de experiencia y objetivos de fitness que tú ingresas voluntariamente.</div></li>
+      <li><div><strong>Historial de entrenamiento:</strong> rutinas realizadas, series, repeticiones, pesos y duración de sesiones.</div></li>
+      <li><div><strong>Datos de nutrición:</strong> planes nutricionales generados y registro de comidas (solo si usas esa función).</div></li>
+      <li><div><strong>Fotos corporales:</strong> imágenes que subas para análisis de progreso — solo usuarios Premium, totalmente voluntario.</div></li>
+      <li><div><strong>Datos de gamificación:</strong> rachas, puntos, logros y posición en ligas.</div></li>
+    </ul>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Cómo usamos tu información</h2>
+    </div>
+    <ul>
+      <li><div>Generar rutinas de entrenamiento personalizadas mediante inteligencia artificial.</div></li>
+      <li><div>Proporcionar respuestas y ajustes del AI Coach en tiempo real.</div></li>
+      <li><div>Crear y actualizar tu plan nutricional automático.</div></li>
+      <li><div>Calcular tu progreso, rachas y posición en las ligas competitivas.</div></li>
+      <li><div>Enviarte notificaciones de recordatorio de entrenamiento (con tu permiso explícito).</div></li>
+      <li><div>Mejorar la precisión de nuestros algoritmos de IA de forma anónima.</div></li>
+    </ul>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Servicios de terceros</h2>
+    </div>
+    <p>Trabajamos con proveedores de confianza para operar la app:</p>
+    <br/>
+    <div class="third-party-grid">
+      <div class="third-party-card">
+        <div class="service-name">Firebase (Google)</div>
+        <div class="service-desc">Autenticación y base de datos en tiempo real.</div>
+        <a href="https://firebase.google.com/support/privacy" target="_blank">Ver política →</a>
+      </div>
+      <div class="third-party-card">
+        <div class="service-name">Supabase</div>
+        <div class="service-desc">Historial de entrenamientos y planes nutricionales.</div>
+        <a href="https://supabase.com/privacy" target="_blank">Ver política →</a>
+      </div>
+      <div class="third-party-card">
+        <div class="service-name">Groq AI</div>
+        <div class="service-desc">Generación de rutinas y respuestas del AI Coach.</div>
+        <a href="https://groq.com/privacy-policy/" target="_blank">Ver política →</a>
+      </div>
+      <div class="third-party-card">
+        <div class="service-name">Stripe</div>
+        <div class="service-desc">Procesamiento seguro de pagos. No guardamos datos de tarjeta.</div>
+        <a href="https://stripe.com/privacy" target="_blank">Ver política →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Seguridad de tus datos</h2>
+    </div>
+    <p>Toda la comunicación entre la app y nuestros servidores usa <strong>cifrado TLS/HTTPS</strong>. Las fotos corporales se almacenan en Firebase Storage con reglas de acceso que garantizan que solo tú puedes verlas. No compartimos información personal con terceros con fines comerciales.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Retención de datos</h2>
+    </div>
+    <p>Conservamos tus datos mientras tu cuenta esté activa. Si eliminas tu cuenta, borramos toda tu información personal en un plazo de <strong>30 días</strong>, salvo obligación legal de conservarla.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Tus derechos</h2>
+    </div>
+    <div class="rights-grid">
+      <div class="right-item"><div class="dot"></div>Acceder a tus datos personales</div>
+      <div class="right-item"><div class="dot"></div>Corregir datos incorrectos</div>
+      <div class="right-item"><div class="dot"></div>Eliminar tu cuenta y datos</div>
+      <div class="right-item"><div class="dot"></div>Exportar tu historial</div>
+      <div class="right-item"><div class="dot"></div>Desactivar notificaciones</div>
+      <div class="right-item"><div class="dot"></div>Retirar consentimiento</div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Menores de edad</h2>
+    </div>
+    <p>Adaptix no está dirigida a menores de 13 años y no recopilamos conscientemente información de menores. Si eres padre o tutor y crees que tu hijo ha proporcionado datos, contáctanos de inmediato.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Cambios a esta política</h2>
+    </div>
+    <p>Podemos actualizar esta política ocasionalmente. Te notificaremos dentro de la app sobre cambios significativos. La fecha al inicio del documento siempre refleja la versión vigente.</p>
+  </div>
+
+  <hr/>
+
+  <!-- CONTACT -->
+  <div class="contact-card">
+    <h3>¿Tienes preguntas?</h3>
+    <p>Estamos para ayudarte con cualquier duda sobre tu privacidad.</p>
+    <a href="mailto:irvinquintanarr@gmail.com" class="contact-btn">Contáctanos</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo_white.png" alt="Adaptix" class="footer-logo" />
+  <p>&copy; 2025 Adaptix. Todos los derechos reservados.</p>
+  <p style="margin-top:6px"><a href="mailto:irvinquintanarr@gmail.com">irvinquintanarr@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
